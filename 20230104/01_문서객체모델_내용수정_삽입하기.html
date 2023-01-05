@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>01_문서객체모델_내용수정_삽입하기</title>
+  <style>
+    #clock {font-size: 30px;color: #00f;}
+    .box{border: 2px solid #f00;background: #ff0;}
+  </style>
+</head>
+<body>
+  <h2>01_문서객체모델_내용수정_삽입하기</h2>
+  <p>웹문서의 요소를 선택하여 내용을 삽입하거나 수정할 수 있다.</p>
+  <ul>
+    <li>요소명.innerText = 내용;</li>
+    <li>요소명.innerHTML = 내용;</li>
+  </ul>
+
+  <h3>버튼을 클릭하면 현재 시각을 #clock요소에 표시하기</h3>
+  <div id="clock">아래 버튼을 클릭시 이곳에 현재시각이 표시됩니다.</div>
+
+  <input type="button" value="innerText속성으로 시간표시하기" onclick="inTxt();">
+  <input type="button" value="innerHTML속성으로 시간표시하기" onclick="inHtml();">
+
+  <script>
+    let today = new Date();
+    let h = today.getHours();
+    let m = today.getMinutes();
+    let s = today.getSeconds();
+    function inTxt() {
+      document.getElementById('clock').innerText = h+':'+m+':'+s;
+    }
+
+    function inHtml() {
+      document.getElementById('clock').innerHTML = '<p class="box">'+h+':'+m+':'+s+'</p>';
+    }
+  </script>
+
+</body>
+</html>
