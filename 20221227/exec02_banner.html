@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>함수를 활용하여 배너 구현하기</title>
+  <style>
+    .banner {
+      width: 1224px;height: 600px;
+      border: 5px solid #333;
+      overflow: hidden;
+      position: relative;
+    }
+    .banner * {margin: 0; padding: 0;}
+    .banner img {
+      width: 100%;
+      display: block;
+    }
+    
+    .fas {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      padding: 5px 3px;
+      font-size: 36px;
+      background-color: #333;
+      color: #fff;
+      cursor: pointer;
+    }
+    .fas.left {
+      left: 0;
+    }
+    .fas.right {
+      right: 0;
+    }
+    .banner > span {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      background-color: #333;
+      color:#fff;
+    }
+  </style>
+</head>
+<body>
+  <h2>함수를 활용하여 배너 구현하기</h2>
+  <dl>
+    <dt>구현순서</dt>
+    <dd>banner영역을 만들고 이미지 태그요소를 사용하여 첫번째 이미지를 삽입한다.</dd>
+    <dd>아이콘 폰트를 사용하여 좌, 우끝에 방향표시 버튼을 삽입한다.</dd>
+    <dd>자바스크립트에서 nextImg, prevImg함수를 각각 작성하여 총 이미지개수 4장을 초과하지 않게 조건식을 작성한다.</dd>
+    <dd>좌, 우 버튼에 이벤트를 사용하여 각각 클릭하면 해당함수가 호출되게 하고, 이미지, 해당 번호가 표시되게 한다.</dd>
+  </dl>
+
+  <div class="banner">
+    <img src="./images/lush01.png" alt="배너" id="banner">
+    <i class="fas fa-angle-left left btn" onclick="prevImg();"></i>
+    <i class="fas fa-angle-right right btn" onclick="nextImg();"></i>
+    <span id="page">&nbsp;</span>
+  </div>
+  <script>
+    let n = 1;   
+    
+    document.getElementById("page").innerHTML=n+'/5';
+
+    function nextImg() {
+      if(n==5){
+        n = 1;
+      } else {
+        n++;
+      }
+      document.getElementById("banner").src="./images/lush0" + n + ".png";
+      document.getElementById("page").innerHTML = n+'/5';
+    }
+    function prevImg() {
+      if(n==1){
+        n = 5;
+      } else {
+        n--;
+      }
+      document.getElementById("banner").src="./images/lush0" + n + ".png";
+      document.getElementById("page").innerHTML = n+'/5';
+    }
+
+    //시간객체를 사용하여 매 초마다 반복실행하기
+    //setInterval(함수명, 반복시간);
+
+    let timer = setInterval(nextImg, 3000);
+
+  </script>
+</body>
+</html>
