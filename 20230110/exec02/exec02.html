@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>스타벅스 메인 이미지</title>
+  <style>
+    .banner_main {
+      background-image: url('./images/bev_bg.jpg');
+      background-size: cover;
+      position: relative;
+    }
+    .banner_main::after {
+      content: '';
+      display: block;
+      padding-bottom: 32.3%;
+    }
+    .banner_main > img {position: absolute;}
+    .banner_main > .blend {top: 13.75%; left: 14.2%;}
+    .banner_main > .bev1.cup {top: 8.75%; left: 63.6%;}
+    .banner_main > .bev1.txt {top: 5%; left: 47.1%;}
+    .banner_main > .bev2.cup {top: 34.5%; left: 55.8%;}
+    .banner_main > .bev2.txt {top: 34%; left: 43%;}
+    .banner_main > .bev3.cup {top: 40%; left: 64.2%;}
+    .banner_main > .bev3.txt {top: 25%; left: 75.8%;}
+
+    .bev1, .bev2, .bev3 {display: none;}
+  </style>
+</head>
+<body>
+  <h2>스타벅스 메인 이미지</h2>
+  <article class="banner_main">
+    <img src="./images/m_18_emblem.png" alt="the blend" class="blend">
+    <img src="./images/bev1_cup.png" alt="홀리데이 밀크 초콜릿" class="bev1 cup">
+    <img src="./images/bev1_txt.png" alt="홀리데이 밀크 초콜릿" class="bev1 txt">
+    <img src="./images/bev2_cup.png" alt="레몬진저 차이 티" class="bev2 cup">
+    <img src="./images/bev2_txt.png" alt="레몬진저 차이 티" class="bev2 txt">
+    <img src="./images/bev3_cup.png" alt="토피 넛 라떼" class="bev3 cup">
+    <img src="./images/bev3_txt.png" alt="토피 넛 라떼" class="bev3 txt">
+  </article>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(function(){
+      for(let i = 0; i < 3; i++){
+        $('.bev'+(i+1)).delay((i+1)*1500).fadeIn();
+      }
+    });
+  </script>
+</body>
+</html>
