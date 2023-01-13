@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>재생 정지 컨트롤버튼 슬라이더</title>
+  <!-- 폰트어썸 주소 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <style>
+    *{margin:0px;padding:0px;}
+    a{color:#333;text-decoration:none;}
+    ul, li,ol{list-style:none;}
+
+    /* 340 378 */
+    .b_wrap {
+      width: 340px; height: 378px;
+      border: 3px solid #333;
+      margin: 20px auto;
+      overflow: hidden;
+      position: relative;
+    }
+    .b_wrap > .banner {
+      display: flex;
+    }
+    .b_wrap > .banner > li {}
+    .b_wrap > .banner > li > a {}
+    .b_wrap > .banner > li > a > img {
+      position: relative;
+      left: 0;
+    }
+    .b_wrap > .c_control {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 5px;
+    }
+    .b_wrap > .c_control > li {
+      width: 10px; height: 10px;
+      background-color: #fff;
+      border-radius: 50%;
+      transition: .5s;
+    }
+    .b_wrap > .c_control > li.on {
+      width: 30px;
+      border-radius: 10px;
+      background-color: #a52a2a;
+    }
+    .b_wrap > .c_control_sub {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      display: flex;
+      gap: 5px;
+      color: #fff;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+  <article class='b_wrap'>
+    <ul class="banner">
+      <li><a href="#" title=""><img src="./images/01-1.jpg" alt="슬라이드">
+      </a></li>
+      <li><a href="#" title=""><img src="./images/02-1.jpg" alt="슬라이드">
+      </a></li>
+      <li><a href="#" title=""><img src="./images/03-1.jpg" alt="슬라이드">
+      </a></li>
+    </ul>
+    <ul class="c_control">
+      <li class="on"></li>
+      <li></li>
+      <li></li>
+    </ul>
+    <ul class="c_control_sub">
+      <li><i class="fa-solid fa-play"></i></li>
+      <li><i class="fa-solid fa-stop"></i></li>
+    </ul>
+  </article>
+  <script>
+    $(function(){
+      let n = 0;
+      const img_w = 340;
+      const slide_speed = 3000;
+
+      //슬라이드 움직이는 함수
+      function slide_move(){
+        $('.b_wrap img').animate({'left':n*-img_w}, 500);
+        $('.c_control > li').removeClass('on');
+        $('.c_control > li').eq(n).addClass('on');
+      }
+
+      let Timer = setInterval(function(){
+        if(n==2){
+          n=0;
+        } else {
+          n++;
+        }
+        slide_move();
+      }, slide_speed);
+      $('.c_control > li').click(function(){
+        n = $(this).index();
+        slide_move();
+      });
+      
+      //컨트롤버튼에 마우스 올릴시 정지 이후 마우스 떼면 실행
+      $('.c_control > li').hover(function(){
+        clearInterval(Timer);
+        //정지상태 저장
+        Timer = false;
+      }, function(){
+        Timer = setInterval(function(){
+        if(n==2){
+          n=0;
+        } else {
+          n++;
+        }
+        slide_move();
+      }, slide_speed);
+      });
+
+      //재생
+      $('.c_control_sub > li > i.fa-play').click(function(){
+        //정지상태가 맞는지 검증
+        if(!Timer){
+          Timer = setInterval(function(){
+          if(n==2){
+            n=0;
+          } else {
+            n++;
+          }
+          slide_move();
+          }, slide_speed);
+        }
+      });
+
+      //정지
+      $('.c_control_sub > li > i.fa-stop').click(function(){
+        clearInterval(Timer);
+        //정지상태 저장
+        Timer = false;
+      });
+    });
+  </script>
+</body>
+</html>
