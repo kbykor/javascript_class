@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>가로길게슬라이드</title>
+  <style>
+    * {margin: 0; padding: 0;}
+    ul, li, ol {list-style: none;}
+    .hidden {display: none;}
+    .wrap {
+      width: 800px; height: 122px;
+      border: 3px solid #333;
+      margin: 0 auto;
+    }
+    .wrap ul {
+      display: flex;
+      position: relative;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(function(){
+      let n = 0;
+      let img_w = $('.wrap > ul > li > img').eq(0).width();
+      let Timer = setInterval(function(){
+        $('.wrap ul').css('left',-n);
+        n++;
+      }, 25);
+    });
+  </script>
+</head>
+<body>
+  <h2>가로길게슬라이드</h2>
+  <article class="wrap">
+    <h2 class="hidden">가로길게슬라이드</h2>
+    <ul>
+      <li><img src="./images02/seoul1.jpg" alt="이미지"></li>
+      <li><img src="./images02/seoul2.jpg" alt="이미지"></li>
+      <li><img src="./images02/seoul3.jpg" alt="이미지"></li>
+      <li><img src="./images02/seoul4.jpg" alt="이미지"></li>
+      <li><img src="./images02/seoul5.jpg" alt="이미지"></li>
+      <li><img src="./images02/seoul1.jpg" alt="이미지"></li>
+      <li><img src="./images02/seoul1.jpg" alt="이미지"></li>
+    </ul>
+  </article>
+</body>
+</html>

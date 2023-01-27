@@ -1,0 +1,131 @@
+@charset "utf-8";
+
+body {
+  font-family: "맑은고딕",arial,sans-serif;
+  font-size: 12px;
+  color: #333;
+}
+a{color: #333; text-decoration: none;}
+h2, p, .desc {padding: 5px;}
+
+main {margin-top: 50px;}
+.gallery {
+  width: 1200px;
+  margin: 0 auto;
+  border: 3px solid #f00;
+}
+.gallery h2{
+  text-align: center;
+  line-height: 60px;
+}
+.g_navi {
+  height: 50px;
+  border-bottom: 3px solid #000;
+}
+.g_navi > ul {
+  display: flex;
+  justify-content: center;
+}
+.g_navi > ul > li{
+  margin: 0 10px;
+}
+.g_navi > ul > li > a{
+  font-size: 14px;
+  background-color: #000;
+  color: #fff;
+  padding: 4px 14px 5px 14px;
+  border-radius: 20px;
+  line-height: 40px;
+  text-transform: uppercase;
+}
+.act {background: #cf068c !important;}
+
+/* 갤러리 이미지 서식 */
+.g_list {
+  display: flex;
+  flex-wrap: wrap;
+}
+.g_list > li {
+  width: 25%;
+  height: 200px;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+.g_list > li > a {
+  transition: .3s;
+}
+.g_list > li > a:hover {
+  background-color: rgba(0,0,0,.5);
+}
+  
+.g_list > li > a:hover img {
+  border-radius: 30% 0 0 0;
+}
+.g_list > li > a img {
+  width: 100%;
+  object-fit: cover;
+  transition: .5s;
+}
+.g_list > li > a span {
+  display: block;
+  background-color: rgba(0,0,0,.7);
+  line-height: 40px;
+  color: #fff;
+  position: absolute;
+  bottom: -40px; left: 0px;
+  text-indent: 10px;
+  width: 100%;
+  /* transition: .3s; */
+}
+/* .g_list > li > a:hover span {
+  bottom: 0;
+} */
+
+.modal {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0,0,0,.7);
+  display: flex;
+  justify-content: center; align-items: center;
+}
+.modal .center {
+  position: relative;
+  max-width: 600px;
+}
+.modal .center h3 {
+  text-align: center;
+  color: #fff;
+  font-size: 24px;
+  line-height: 40px;
+}
+.modal .center p {
+  position: absolute;
+  bottom: -24px; left: 50%;
+  transform: translateX(-50%);
+  font-size: 16px;
+  color: #fff;
+}
+.modal .center i.fas {
+  position: absolute;
+  color: #fff;
+  font-size: 32px;
+}
+.modal .center i.fas.fa-times {
+  top: 0; right: -40px;
+  padding: 4px 10px;
+}
+.modal .center i.fas.fa-chevron-left {
+  top: 50%; left: -50px;
+  padding: 4px 13px;
+}
+.modal .center i.fas.fa-chevron-right {
+  top: 50%; right: -50px;
+  padding: 4px 13px;
+}
+.modal .center img {
+  width: 100%;
+  transition: .5s;
+}
