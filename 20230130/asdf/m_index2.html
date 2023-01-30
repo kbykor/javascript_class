@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>에뛰드 모바일 웹 화면</title>
+    <link rel="stylesheet" href="./css/mindex2.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script>
+        $(function(){
+            let tBtn = $('#toggle');
+
+                tBtn.click(function() {
+                    $(this).find('span').first().toggleClass('act01');
+                    $(this).find('span').eq(1).toggleClass('act02');
+                    $(this).find('span').last().toggleClass('act03');
+                    $('.wrap').toggleClass('on');
+                    $('main, footer, .slide > li').toggleClass('on1');
+                    $('header').toggleClass('header_top');
+
+                })
+        
+            let img_w = 500;
+
+                
+
+            })
+
+        
+
+    </script>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="#">
+                <img src="./images/logo.png" alt="상단로고1">
+            </a>
+        </h1>
+
+        <div id="toggle">
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+            <span>&nbsp;</span>
+        </div>
+
+    </header>
+    <div class="wrap">
+        <ul class="gnb">
+            <li>menu 1</li>
+            <li>menu 2</li>
+            <li>menu 3</li>
+            <li>menu 4</li>
+            <li>menu 5</li>
+        </ul>
+    </div>
+    <main>
+        <article class="slide">
+            <ul>
+                <li>
+                    <img src="./images/slide01_01.jpg" alt="1">
+                </li>
+                <li>
+                    <img src="./images/slide02_02.jpg" alt="2">
+                </li>
+                <li>
+                    <img src="./images/slide03_03.jpg" alt="3">
+                </li>
+            </ul>
+        </article>
+    </main>
+    <footer>
+        <address>
+            copyright2023 &copy; 에뛰드 하우스 allrights reserved.
+        </address>
+    </footer>
+</body>
+</html>
