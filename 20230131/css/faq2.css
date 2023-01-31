@@ -1,0 +1,98 @@
+@charset "utf-8";
+
+* {margin: 0;padding: 0;box-sizing: border-box;font-family: '나눔바른고딕','Nanum Barun Gothic','나눔바른고딕OTF',NanumBarunGothicOTF,'Malgun Gothic',Arial,sans-serif;}
+
+.hidden {display: none;}
+
+section {
+  width: 750px;
+  margin: 20px auto 0;
+}
+
+fieldset {
+  border: none;
+}
+fieldset {
+  width: 100%;height: 35px;
+  border: 1px solid #640faf;
+  padding: 0 40px;
+  border-radius: 20px;
+  position: relative;
+}
+fieldset::after {
+  content: "\f002";
+  position: absolute;
+  top: 10px; left: 14px;
+  color: #640faf;
+  font-size: 13px;
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+}
+fieldset > input {
+  width: 100%;
+  height: 100%;
+  border: none;
+  font-size: 13px;
+}
+
+.board {}
+.board > h3 {
+  height: 36px;
+  margin: 18px 0 13px;
+  font-size: 18px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.board > h3 > a {
+  font-size: 12px;
+  font-weight: lighter;
+  text-decoration: none;
+  color: #767676;
+}
+.board > dl {
+  border-bottom: 1px solid #f0f0f0;
+}
+.board > dl > dt {
+  border-top: 1px solid #f0f0f0;
+  width: 100%; height: 46px;
+  padding: 0 15px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  font-weight: 400;
+  color: #111;
+  cursor: pointer;
+}
+.board > dl > dt > span {
+  color: #640faf;
+  font-size: 15px;
+  font-weight: 900;
+  width: 20px; margin-right: 7px;
+  text-align: center;
+}
+.board > dl > dt > i.fas {
+  margin-left: auto;
+  font-size: 20px;
+}
+.act {
+  transform: rotate(180deg);
+}
+.board > dl > dd {
+  font-size: 14px;
+  padding: 20px 12px;
+  color: #4d4d4d;
+  background-color: #fafafa;
+  display: none;
+  font-weight: 100;
+}
+.board > dl > dd > img {
+  width: 100%;
+}
+.board > dl > dd > a {
+  text-decoration: none;
+  color: #4d4d4d;
+}
+.board > dl > dd > a.emp_red {
+  color: #f00;
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CJ몰 자주하는질문</title>
+  <!-- 서식작성 -->
+  <link href="./css/faq2.css" rel="stylesheet" type="text/css">
+
+  <!-- 폰트어썸 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+
+  <!-- 제이쿼리 라이브러리  -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script>
+    $(function(){
+      let q = $('.board > dl > dt');
+
+      q.click(function(){
+        if($(this).find('i.fas').hasClass('act')) {
+          $(this).find('i.fas').toggleClass('act').parent().next().toggle();
+        } else {
+          $('i.fas').removeClass('act').parent().next().hide();
+          $(this).find('i.fas').addClass('act').parent().next().show();
+        }
+      });
+    });
+  </script>
+</head>
+<body>
+  <section>
+    <h2 class="hidden">자주하는 질문</h2>
+    <article>
+      <h3 class="hidden">검색하기</h3>
+      <fieldset>
+        <legend class="hidden">검색</legend>
+        <input type="search" id="formSch" placeholder="검색어를 입력해 주세요.">
+      </fieldset>
+    </article>
+    <article class="board">
+      <h3>자주하는 질문 TOP10<a href="#none" title="전체보기">전체보기 &gt;</a></h3>
+      <dl>
+        <dt><span>1</span>반품 신청은 어떻게 하나요? <i class="fas fa-angle-down"></i></dt>
+        <dd><img src="./images/qna01.jpg" alt="이미지01"></dd>
+        <dt><span>2</span>주문을 취소하고 싶어요. <i class="fas fa-angle-down"></i></dt>
+        <dd><img src="./images/qna02.jpg" alt="이미지02"></dd>
+        <dt><span>3</span>리뷰는 어떻게 작성하나요? <i class="fas fa-angle-down"></i></dt>
+        <dd><img src="./images/qna03.png" alt="이미지03"></dd>
+        <dt><span>4</span>반품 시 별도 택배비가 부과되나요? <i class="fas fa-angle-down"></i></dt>
+        <dd>1. 반품 택배비가 무료인 경우<br>
+          - 수령한 상품이 파손/불량이거나 상품이 잘못배송된 경우<br> <br>
+          2. 반품 택배비가 고객 부담인 경우<br>
+          - 구입합 상품 상세설명의 교환/반품정보에 배송비 고객부담이라고 표기되어 있는 상품 중 고객변심에 의한 반품을 요청하는 경우<br>
+        </dd>
+        <dt><span>5</span>원하는 상품 방송시간을 문자로 받고 싶어요 <i class="fas fa-angle-down"></i></dt>
+        <dd><img src="./images/qna05.jpg" alt="이미지05"></dd>
+        <dt><span>6</span>회원 탈퇴는 어떻게 하나요? <i class="fas fa-angle-down"></i></dt>
+        <dd>CJ온스타일 PC 로그인 후 마이존 &gt; [회원 탈퇴] 메뉴를 통해 고객님께서 직접 처리할 수 있습니다.<br> <br>
+          <a href="https://base.cjonstyle.com/p/page/account/withdrawal" class="emp_red" target="_blank">회원탈퇴 PC바로가기</a><br> <br> <br>
+          [회원 탈퇴시 유의점]<br>
+          - CJ ONE 통합회원의 경우 CJ ONE사이트에서 탈퇴(약관동의철회)처리를 진행하셔야합니다.<br>
+          - 회원 아이디로 등록되어 있는 적립금, 할인쿠폰, CJ ONE 포인트는 자동 소멸됩니다.<br>
+          - 회원 탈퇴 시 CJ온스타일이 운영하고 있는 모든 사이트에서 동시 회원탈퇴 됩니다.<br>
+          - 회원 탈퇴 후 재가입 하는 경우에도 신규가입혜택(할인쿠폰 등)은 적용되지 않으며 신규회원 대상 이벤트에 응모할 수 없습니다.
+        </dd>
+        <dt><span>7</span>배송지를 변경할 수 있나요? <i class="fas fa-angle-down"></i></dt>
+        <dd><img src="./images/qna07.jpg" alt="이미지07"></dd>
+        <dt><span>8</span>교환신청은 어떻게 하나요? <i class="fas fa-angle-down"></i></dt>
+        <dd><img src="./images/qna08.jpg" alt="이미지08"></dd>
+        <dt><span>9</span>CJ온스타일 앱(어플리케이션)은 어떻게 설치하나요? <i class="fas fa-angle-down"></i></dt>
+        <dd><img src="./images/qna09.jpg" alt="이미지09"></dd>
+        <dt><span>10</span>결제수단 변경하려면 주문취소하고 재주문하나요?  <i class="fas fa-angle-down"></i></dt>
+        <dd>
+            상품을 취소하지 않고도 다른 결제수단으로 결제 변경이 가능합니다.<br> - [CJ온스타일 로그인] &gt; [마이존] &gt; [주문/배송 조회] &gt; [결제변경]<br> : 당일 주문 건에 한하여 23시30분까지 신용카드로 결제변경이 가능합니다.<br> <br> - 신용카드 외 다른 결제수단으로 변경을 원하는 경우<br> : 당사 고객센터(1644-2525)로 연락주시면 결제변경 도와드리겠습니다.<br> <br> <a href="https://base.cjonstyle.com/p/myzone/orderList?listType=ORDER&amp;orderStatus=ALL&amp;pic=MYCJ|pordgo#1" class="emp_red" target="_blank">주문/배송조회 PC 바로가기</a><br> <a href="https://base.cjonstyle.com/m/myzone/orderList?listType=ORDER&amp;orderStatus=ALL&amp;pic=MYCJ|odrlist#1" class="emp_red" target="_blank">주문/배송조회 모바일 바로가기</a>
+        </dd>
+      </dl>
+    </article>
+  </section>
+</body>
+</html>
