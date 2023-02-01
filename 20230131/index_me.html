@@ -17,49 +17,26 @@
       let mnu = $('header .gnb > ul > li');
 
       mnu.click(function(){
-        let n = $(this).index();
+        let n = pureGetIndex(this);
         console.log(n);
         $('html, body').animate({scrollTop:$('section').eq(n).offset().top-$('header').height()},500);
         return false;
       });
 
-      // 화면스크롤 값 출력해보기
-      $(window).scroll(function(){
-        let sPos = $(this).scrollTop()
-        console.log(sPos);
+      // window.addEventListener('scroll',function(){
+      //   // console.log(this.scrollY);
+      //   document.querySelectorAll('section')[num_scroll];
+      // });
 
-        //만약에 아래 해당하는 조건범위에 맞는 a요소에 서식 적용하기
-        // if(spos <=900) {
-        //   $('.gnb li a').removeClass('t_act'); 
-        //   $('.gnb > ul > li:first-child a').addClass('t_act');
-        // } else if(spos <= 1800) {
-        //   $('.gnb li a').removeClass('t_act'); 
-        //   $('.gnb > ul > li:nth-child(2) a').addClass('t_act');
-        // } else if(spos <=2700) {
-        //   $('.gnb li a').removeClass('t_act'); 
-        //   $('.gnb > ul > li:nth-child(3) a').addClass('t_act');
-        // } else if(spos <=3600) {
-        //   $('.gnb li a').removeClass('t_act'); 
-        //   $('.gnb > ul > li:nth-child(4) a').addClass('t_act');
-        // } else if(spos <=4490) {
-        //   $('.gnb li a').removeClass('t_act'); 
-        //   $('.gnb > ul > li:nth-child(5) a').addClass('t_act');
-        // } else if(spos <=5390) {
-        //   $('.gnb li a').removeClass('t_act'); 
-        //   $('.gnb > ul > li:nth-child(6) a').addClass('t_act');
-        // } else {
-        //   $('.gnb li a').removeClass('t_act'); 
-        //   $('.gnb > ul > li:nth-child(7) a').addClass('t_act');
-        // }
-        //offset 메서드로 각각 해당하는 박스의 위치값에 따른 서식 적용하기
-        $('main section').each(function(i){
-          let top = $(this).offset().top-100;
-          if(sPos >= top) {
-            $('.gnb li a').removeClass();
-            $('.gnb li').eq(i).find('a').addClass('t_act');
-          }
-        });
-      });
+      function pureGetIndex(el){
+        let num = 0;
+        let elArr = el.parentNode.childNodes;
+        for(let i = 0; i < elArr.length; i++){
+          if(el == elArr[i]) return num;
+          if(elArr[i].nodeType==1) num++;
+        }
+        return -1;
+      }
 
     });
   </script>
