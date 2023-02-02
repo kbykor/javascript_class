@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이미지탭메뉴</title>
+  <style>
+    *{margin: 0;padding: 0;box-sizing: border-box;}
+    ul, li{list-style:none;}
+    a{text-decoration:none;color:#333;}
+    body{
+      font-family: "맑은 고딕", arial, sans-serif;
+      font-size:12px;
+      color:#333;
+    }
+    .hidden {display: none;}
+    .img_tab {
+      margin: 0 auto;
+      max-width: 1040px; width: 100%;
+      border: 3px solid #333;
+      position: relative;
+    }
+    .img_tab::after {
+      content: '';
+      display: block;
+      padding-bottom: 59.6%;
+    }
+    .img_tab > ul {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+    }
+    .img_tab > ul > li > a {
+      display: flex;
+      height: 100%;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 5px; padding: 8px 0 2px;
+      font-weight: 900;
+    }
+    .img_tab > ul > li.on > a {
+      background-color: #f06d01;
+      color: #fff;
+    }
+    .img_tab > ul > li > a > img {
+      height: 42px;
+    }
+    .img_tab .img_box {
+      position: absolute;
+      top: 73px;left: 0;
+    }
+    .img_tab .img_box > img {width: 100%; display: block;}
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  <script>
+    $(function(){
+      $('.img_tab > ul > li').click(function(){
+        imgChange($(this));
+        // $('.img_tab').css('height', (79+Number($('.img_box > img').height()))+'px');
+        return false;
+      });
+
+      function imgChange(el) {
+        el.addClass('on').siblings().removeClass('on');
+        $('.img_box > img').attr('src', './img/0'+(el.index()+1)+'.jpg');
+        $('.img_tab > ul > li').each(function(){
+          let ico_src = $(this).find('img').attr('src');
+          // $(this).find('img').attr('src', ico_src.substring(0, ico_src.lastIndexOf('_'))+($(this).hasClass('on') ? '_on.png' : '_off.png')); // substring, lastIndexOf 활용
+          $(this).find('img').attr('src', ($(this).hasClass('on') ? ico_src.replace('_off', '_on') : ico_src.replace('_on', '_off'))); // replace 활용
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  <article class="img_tab">
+    <h2 class="hidden">이미지탭메뉴</h2>
+    <ul>
+      <li class="on">
+        <a href="01.jpg" title="테마여행">
+          <img src="./img/ico_theme_zone_1_on.png" alt="버튼01">
+          <span>테마여행</span>
+        </a>
+      </li>
+      <li>
+        <a href="02.jpg" title="추천일정">
+          <img src="./img/ico_theme_zone_2_off.png" alt="버튼02">
+          <span>추천일정</span>
+        </a>
+      </li>
+      <li>
+        <a href="03.jpg" title="스크린속 제주">
+          <img src="./img/ico_theme_zone_3_off.png" alt="버튼03">
+          <span>스크린속 제주</span>
+        </a>
+      </li>
+      <li>
+        <a href="04.jpg" title="교통정보">
+          <img src="./img/ico_theme_zone_4_off.png" alt="버튼04">
+          <span>교통정보</span>
+        </a>
+      </li>
+      <li>
+        <a href="05.jpg" title="안전&middot;안심관광 가이드">
+          <img src="./img/ico_theme_zone_5_off.png" alt="버튼05">
+          <span>안전&middot;안심관광 가이드</span>
+        </a>
+      </li>
+    </ul>
+    <div class="img_box">
+      <img src="./img/01.jpg" alt="이미지01">
+    </div>
+  </article>
+</body>
+</html>
