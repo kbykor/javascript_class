@@ -71,4 +71,12 @@ $(function(){
     closeModal();
   });
 
+
+  let ran = Math.floor(Math.random()*2)+1;
+  //자스로 구현
+  document.getElementById('eb').src='./images/banner0'+ran+'.jpg';
+
+  //제이쿼리로 구현
+  // $('#eb').attr('src','./images/banner0'+ran+'.jpg');
+
 });

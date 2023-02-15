@@ -10,6 +10,7 @@
   --bg-color01:#006eff;
   --bg-color02:#212772;
   --bg-color03:#fff;
+  --bg-color04: #1c1a1d;
   --f-size: 14px;
   --f-size01: 16px;
 }
@@ -24,4 +25,81 @@ a{
   color:var(--t-color01);
   text-decoration:none;
   font-size:12px;
+}
+
+/* 푸터영역서식 */
+footer {
+  height: 355px;
+  background-color: var(--bg-color04);
+  color: #888;
+}
+footer .emp_footer {
+  font-size: 12px;
+  color: #555;
+}
+footer > article {
+  width: 100%; max-width: 1200px;
+  height: 100%;
+  padding: 30px 15px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 40px;
+  align-items: start;
+  align-content: start;
+}
+footer > article > h1 {}
+footer nav {}
+footer nav > ol {
+  font-size: 16px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+footer nav > ol > li {
+  position: relative;
+}
+footer nav > ol > li a {
+  font-size: 16px;
+  color: #888;
+}
+footer nav > ol > li:nth-of-type(2) a {
+  color:#fff;
+}
+footer nav > ol > li:not(:first-child)::before {
+  content: '';
+  display: block;
+  width: 1px;
+  height: 12px;
+  background-color: #888;
+  position: absolute;
+  top: 4px; left: -14.5px;
+}
+footer article > ul {
+  grid-column: 2/3;
+  font-size: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+footer article > ul dl {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-right: 20px;
+}
+footer article > ul dl > dt {
+  position: relative;
+  margin-right: 12px;
+}
+footer article > ul dl > dt::after {
+  content: ':';
+  position: absolute;
+  top:1px;right: -8px;
+}
+footer address {
+  grid-column: 2/3;
+  font-size: 16px;
+  text-transform: uppercase;
+  padding-top: 20px;
 }

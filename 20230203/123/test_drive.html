@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>현대자동차 캐스퍼 - 시승신청 예약하기</title>
+  <!-- 초기화 -->
+  <link href="./css/reset.css" rel="stylesheet" type="text/css">
+  <!-- 기본서식, 공통서식 -->
+  <link href="./css/base.css" rel="stylesheet" type="text/css">
+  <!-- 레이아웃서식 -->
+  <link href="./css/layout.css" rel="stylesheet" type="text/css">
+  
+  <!-- 아이콘폰트 주소 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- css3추가속성시 접두사 자동으로 붙여주는 스크립트 -->
+  <script src="./script/prefixfree.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>
+      <a href="index.html" title="메인페이지로 바로가기">
+        <img src="./images/logo-casper-white.png" alt="상단로고">
+      </a>
+    </h1>
+
+    <!-- 상단 스크롤시 고정 내비게이션 -->
+    <nav>
+      <ul class="gnb">
+        <li><a href="#" title="소개">소개</a></li>
+        <li><a href="#" title="체험">체험</a></li>
+        <li><a href="#" title="이벤트">이벤트</a></li>
+        <li><a href="#" title="구매안내">구매안내</a></li>
+        <li><a href="#" title="고객지원">고객지원</a></li>
+      </ul>
+    </nav>
+
+    <i class="fas fa-user"></i>
+    <i class="fas fa-bell"></i><!-- 알림아이콘 -->
+  </header>
+
+  <main>
+    <form name="시승신청" method="post" action="db_insert.php">
+      <fieldset>
+        <legend>시승신청 온라인 예약</legend>
+        
+      </fieldset>
+    </form>
+  </main>
+
+  <footer>
+    <div class="f_inner clear">
+      <h2><a href="index.html" title="하단로고"><img src="./images/f_logo-hyundai.png" alt="푸터로고"></a></h2>
+      <nav class="f_lnb">
+        <ul>
+          <li><a href="#" title="이용약관">이용약관</a></li>
+          <li><a href="#" title="개인정보 처리방침">개인정보 처리방침</a></li>
+          <li><a href="#" title="저작권안내">저작권안내</a></li>
+          <li><a href="#" title="공동인증서 안내">공동인증서 안내</a></li>
+          <li><a href="#" title="현대자동차 홈페이지">현대자동차 홈페이지</a></li>
+        </ul>
+      </nav>
+      <address>
+        <dl>
+          <dt>사업자등록번호 : </dt>
+          <dd>101-81-09147</dd>
+          <dt>통신판매업신고번호 : </dt>
+          <dd>2002-01546</dd>
+          <dt>대표이사 :</dt>
+          <dd>장재훈</dd>
+          <dt>주소 : </dt>
+          <dd>서울시 서초구 헌릉로 12</dd>
+          <dt>호스팅서비스 제공 : </dt>
+          <dd>현대오토에버(주)</dd>
+        </dl>
+        <p>copyright&copy; hyundai motor company, all rights reserved.</p>
+      </address>
+    </div>
+  </footer>
+</body>
+</html>
