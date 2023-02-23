@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>자바스크립트 json데이터 출력하기</title>
+  <title>라면정보 데이터 출력하기</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
   <style>
     * {box-sizing: border-box;}
@@ -33,7 +33,7 @@
     $(function(){
       let theadHTML = '';
       let tbodyHTML = '';
-      $.getJSON('./data/test_drive.json',function(data){
+      $.getJSON('./data/noodle.json',function(data){
           // 0, 1, 2, 3 ...
           for(key in data){
             if(key == 0) {
@@ -50,7 +50,11 @@
             // num, name, phone ...
             for(let key_data in data[key]) {
               //data[0, 1, 2, 3 ...][num, name, phone ...]
-              tbodyHTML += '<td>'+data[key][key_data]+'</td>';
+              if(key_data == 'kind') {
+                tbodyHTML += '<td>'+(data[key][key_data] == 'M' ? '일반라면' : '용기라면')+'</td>';
+              } else {
+                tbodyHTML += '<td>'+data[key][key_data]+'</td>';
+              }
               console.log('Key : ' + key_data + ' | Value : ' + data[key][key_data]);
             }
             console.log('Arr End');
@@ -62,12 +66,11 @@
   </script>
 </head>
 <body>
-  <h2>자바스크립트 json데이터 출력하기</h2>
-  <p>닷홈 SQL데이터 베이스에 저장된 'test_drive'테이블의 자료를 'json'파일로 저장하여 자바스크립트로 출력해보기</p>
+  <h2>라면정보 데이터 출력하기</h2>
   <table>
     <thead>
       <fieldset>
-        <legend>시승신청 예약현황</legend>
+        <legend>라면 데이터</legend>
       </fieldset>
     </thead>
     <tbody></tbody>
